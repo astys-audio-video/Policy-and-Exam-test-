@@ -1,0 +1,2094 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
+    <title>Astys Audio Video Pvt. Ltd. — Company Policy Manual</title>
+    <!-- Company Logo Favicon -->
+    <link rel="icon" type="image/png" href="img/Astys Logo.PNG" />
+    <link rel="shortcut icon" type="image/png" href="img/Astys Logo.PNG" />
+    <!-- Supabase JS Client library -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <!-- Premium Google Fonts: Plus Jakarta Sans & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --navy: #07182d;
+        --blue: #11395f;
+        --ink: #182230;
+        --muted: #667085;
+        --line: #e3e8ef;
+        --soft: #f4f7fa;
+        --ok: #147a55;
+        --error: #d92d20;
+        --warning: #f79009;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        background: #eef2f6;
+        color: var(--ink);
+        font-family:
+          "Plus Jakarta Sans",
+          "Inter",
+          system-ui,
+          -apple-system,
+          sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+      header {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        background: var(--navy);
+        color: #fff;
+        padding: 14px 26px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 4px 18px #0002;
+      }
+      .brand-container {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+      .brand-logo {
+        height: 40px;
+        width: auto;
+        object-fit: contain;
+        background: rgba(255, 255, 255, 0.08);
+        padding: 4px 8px;
+        border-radius: 6px;
+      }
+      .brand {
+        font-size: 17px;
+        font-weight: 700;
+        line-height: 1.25;
+        letter-spacing: -0.3px;
+        color: #ffffff;
+      }
+      .brand small {
+        display: block;
+        font-size: 9.5px;
+        font-weight: 600;
+        color: #94a3b8;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        margin-top: 3px;
+      }
+      .header-right {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .hr-nav-btn {
+        background: var(--blue);
+        color: #fff;
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        padding: 6px 14px;
+        border-radius: 99px;
+        font-size: 11px;
+        font-weight: 700;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        transition: all 0.2s;
+      }
+      .hr-nav-btn:hover {
+        background: #184c7e;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+      }
+      .hr-nav-btn.logged-in {
+        background: var(--ok);
+        border-color: #1bb37d;
+      }
+      .ver {
+        font-size: 11px;
+        opacity: 0.8;
+        text-align: right;
+      }
+      .layout {
+        display: grid;
+        grid-template-columns: 285px minmax(0, 1fr);
+        max-width: 1500px;
+        margin: auto;
+        transition: all 0.3s ease;
+      }
+      aside {
+        position: sticky;
+        top: 72px;
+        height: calc(100vh - 72px);
+        overflow: auto;
+        background: #fff;
+        border-right: 1px solid var(--line);
+        padding: 20px 15px;
+      }
+      .progressTop {
+        font-size: 11px;
+        font-weight: 800;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 7px;
+      }
+      .bar {
+        height: 7px;
+        background: #e8edf3;
+        border-radius: 10px;
+        overflow: hidden;
+        margin-bottom: 17px;
+      }
+      #fill {
+        height: 100%;
+        width: 0;
+        background: var(--blue);
+        transition: 0.2s;
+      }
+      nav a {
+        display: flex;
+        gap: 9px;
+        align-items: flex-start;
+        text-decoration: none;
+        color: #566273;
+        padding: 8px;
+        border-radius: 8px;
+        font-size: 11px;
+        line-height: 1.35;
+      }
+      nav a:hover {
+        background: #f1f5f9;
+        color: var(--navy);
+      }
+      .num {
+        min-width: 19px;
+        height: 19px;
+        border: 1px solid #cbd5df;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        font-size: 9px;
+      }
+      nav a.done .num {
+        background: var(--ok);
+        border-color: var(--ok);
+        color: white;
+      }
+      main {
+        max-width: 1100px;
+        width: 100%;
+        padding: 34px;
+        margin: auto;
+      }
+      .hero {
+        background: linear-gradient(135deg, #07182d, #123c67);
+        color: #fff;
+        padding: 38px;
+        border-radius: 18px;
+        margin-bottom: 20px;
+        box-shadow: 0 14px 35px #07182d16;
+      }
+      .hero .over {
+        font-size: 10px;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        opacity: 0.72;
+      }
+      .hero h1 {
+        font-size: 35px;
+        line-height: 1.08;
+        margin: 10px 0 12px;
+      }
+      .hero p {
+        color: #dbe5ef;
+        line-height: 1.65;
+        max-width: 740px;
+        font-size: 14px;
+      }
+      .chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 18px;
+      }
+      .chip {
+        font-size: 10px;
+        border: 1px solid #ffffff35;
+        padding: 7px 10px;
+        border-radius: 99px;
+      }
+      .policy,
+      .ack,
+      .records {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 28px;
+        margin: 17px 0;
+        box-shadow: 0 4px 15px #07182d08;
+        scroll-margin-top: 92px;
+      }
+      .section-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .section-head span {
+        font-size: 9px;
+        letter-spacing: 1.3px;
+        color: #7a8797;
+        font-weight: 800;
+      }
+      .readBtn {
+        border: 1px solid #d7dee7;
+        background: #fff;
+        color: var(--navy);
+        font-size: 10px;
+        font-weight: 800;
+        border-radius: 7px;
+        padding: 7px 9px;
+        cursor: pointer;
+        transition: 0.2s;
+      }
+      .readBtn:hover {
+        background: #f4f7fa;
+      }
+      .readBtn.done {
+        background: #eaf7f1;
+        color: var(--ok);
+        border-color: #b9ddce;
+      }
+      h2 {
+        font-size: 22px;
+        color: var(--navy);
+        margin: 9px 0 18px;
+      }
+      h3 {
+        font-size: 14px;
+        color: #24364a;
+        margin: 21px 0 7px;
+      }
+      p,
+      li {
+        font-size: 13px;
+        line-height: 1.72;
+        color: #3e4b5c;
+      }
+      ul {
+        padding-left: 21px;
+      }
+      .rule {
+        background: #f3f7fb;
+        border-left: 4px solid var(--blue);
+        padding: 13px 15px;
+        border-radius: 0 8px 8px 0;
+        margin: 13px 0;
+        font-size: 13px;
+        line-height: 1.7;
+      }
+      /* Responsive Table Wrapper */
+      .table-responsive {
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 12px;
+        margin: 13px 0;
+      }
+      th,
+      td {
+        text-align: left;
+        padding: 10px;
+        border-bottom: 1px solid var(--line);
+      }
+      th {
+        background: #f7f9fb;
+        font-weight: 700;
+        color: var(--navy);
+      }
+      .ack {
+        border: 2px solid var(--navy);
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+      label.lbl {
+        display: block;
+        font-size: 9px;
+        text-transform: uppercase;
+        letter-spacing: 0.7px;
+        font-weight: 800;
+        color: #667085;
+        margin-bottom: 5px;
+      }
+      input[type="text"],
+      input[type="password"],
+      select {
+        width: 100%;
+        padding: 11px;
+        border: 1px solid #d4dce6;
+        border-radius: 8px;
+        font-size: 13px;
+        outline: none;
+        transition: 0.2s;
+      }
+      input[type="text"]:focus,
+      input[type="password"]:focus,
+      select:focus {
+        border-color: var(--blue);
+        box-shadow: 0 0 0 3px rgba(17, 57, 95, 0.12);
+      }
+      input.input-error {
+        border-color: var(--error) !important;
+        background-color: #fffbfa;
+      }
+
+      /* ENHANCED CHECKBOX STYLING */
+      .check-all-label {
+        font-size: 11px;
+        font-weight: 700;
+        color: var(--blue);
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        cursor: pointer;
+        user-select: none;
+        background: #f0f4f8;
+        padding: 6px 12px;
+        border-radius: 6px;
+        border: 1px solid #d4dce6;
+        transition: all 0.2s;
+      }
+      .check-all-label:hover {
+        background: #e2e8f0;
+      }
+      .check-all-label input {
+        width: 16px;
+        height: 16px;
+        accent-color: var(--navy);
+        cursor: pointer;
+      }
+      .check {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        padding: 12px 14px;
+        margin: 6px 0;
+        border: 1px solid #edf1f4;
+        background: #fff;
+        border-radius: 8px;
+        font-size: 12.5px;
+        line-height: 1.5;
+        cursor: pointer;
+        user-select: none;
+        transition: all 0.15s ease;
+      }
+      .check:hover {
+        background: #f8fafc;
+        border-color: #cbd5df;
+      }
+      .check input[type="checkbox"] {
+        width: 20px;
+        height: 20px;
+        min-width: 20px;
+        accent-color: var(--navy);
+        cursor: pointer;
+        margin: 0;
+        flex-shrink: 0;
+      }
+      .check.check-error {
+        color: var(--error);
+        font-weight: 600;
+        background: #fffbfa;
+        border-color: #fda29b;
+      }
+
+      .sigBtns {
+        display: flex;
+        gap: 7px;
+        margin: 12px 0;
+      }
+      .sigBtns button,
+      .primary,
+      .secondary,
+      .btn-sm,
+      .btn-danger {
+        border: 0;
+        border-radius: 8px;
+        padding: 10px 13px;
+        font-weight: 800;
+        cursor: pointer;
+        transition: 0.2s;
+      }
+      .sigBtns button {
+        border: 1px solid #d5dde6;
+        background: #fff;
+        color: var(--ink);
+      }
+      .sigBtns button.active {
+        background: var(--navy);
+        color: #fff;
+        border-color: var(--navy);
+      }
+      canvas {
+        width: 100%;
+        height: 170px;
+        border: 1px dashed #9aa7b5;
+        border-radius: 9px;
+        background: #fbfcfd;
+        touch-action: none;
+      }
+      #typeBox {
+        display: none;
+      }
+      #typed {
+        font-family: cursive;
+        font-size: 27px;
+        padding: 16px;
+      }
+      .actions {
+        display: flex;
+        justify-content: flex-end;
+        gap: 8px;
+        margin-top: 17px;
+      }
+      .primary {
+        background: var(--navy);
+        color: #fff;
+      }
+      .primary:hover {
+        background: #112d4e;
+      }
+      .secondary {
+        background: #edf2f6;
+        color: var(--navy);
+      }
+      .secondary:hover {
+        background: #e2e8f0;
+      }
+      .btn-danger {
+        background: #fee4e2;
+        color: var(--error);
+        border: 1px solid #fda29b;
+      }
+      .btn-danger:hover {
+        background: #fdd8d5;
+      }
+      .btn-sm {
+        padding: 6px 12px;
+        font-size: 11px;
+      }
+      .note {
+        font-size: 10px;
+        color: #758193;
+        line-height: 1.5;
+      }
+      #success {
+        display: none;
+        background: #eefaf4;
+        color: #155d43;
+        border: 1px solid #b8dfcf;
+        border-radius: 9px;
+        padding: 18px;
+        margin-top: 15px;
+        font-size: 13px;
+        line-height: 1.6;
+      }
+      .status {
+        display: inline-block;
+        background: #eaf7f1;
+        color: var(--ok);
+        padding: 4px 8px;
+        border-radius: 99px;
+        font-size: 10px;
+        font-weight: 800;
+      }
+      .badge-source {
+        display: inline-block;
+        font-size: 9px;
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+      .badge-supabase {
+        background: #3ecf8e22;
+        color: #107e4a;
+        border: 1px solid #3ecf8e66;
+      }
+      .badge-local {
+        background: #f2f4f7;
+        color: #667085;
+        border: 1px solid #d0d5dd;
+      }
+
+      /* HR LOGS ONLY PANEL STYLES */
+      #hrLogsPanel {
+        display: none;
+        border: 2px solid var(--blue);
+        background: #fff;
+        border-radius: 14px;
+        padding: 28px;
+        margin: 10px 0;
+        box-shadow: 0 8px 30px rgba(17, 57, 95, 0.12);
+      }
+      .hr-panel-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid var(--line);
+        padding-bottom: 16px;
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+      .hr-panel-header h2 {
+        margin: 0;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .hr-stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+        gap: 14px;
+        margin-bottom: 22px;
+      }
+      .stat-card {
+        background: #f8fafc;
+        border: 1px solid #e2e8f0;
+        border-radius: 10px;
+        padding: 16px;
+        box-shadow: inset 0 1px 0 #fff;
+      }
+      .stat-card .stat-val {
+        font-size: 26px;
+        font-weight: 800;
+        color: var(--navy);
+      }
+      .stat-card .stat-lbl {
+        font-size: 10px;
+        text-transform: uppercase;
+        letter-spacing: 0.8px;
+        color: var(--muted);
+        font-weight: 700;
+        margin-top: 4px;
+      }
+      .hr-toolbar {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 16px;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .hr-search-box {
+        display: flex;
+        gap: 8px;
+        flex: 1;
+        min-width: 250px;
+      }
+
+      /* Toast Notifications */
+      #toast-container {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 1000;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .toast {
+        background: var(--navy);
+        color: #fff;
+        padding: 12px 18px;
+        border-radius: 8px;
+        font-size: 12px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        animation: fadeIn 0.3s ease;
+      }
+      .toast.success {
+        border-left: 4px solid var(--ok);
+      }
+      .toast.warning {
+        border-left: 4px solid var(--warning);
+      }
+      .toast.error {
+        border-left: 4px solid var(--error);
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      /* Config & Auth Modals */
+      .modal-backdrop {
+        position: fixed;
+        inset: 0;
+        background: rgba(7, 24, 45, 0.65);
+        backdrop-filter: blur(4px);
+        z-index: 100;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+      }
+      .modal-card {
+        background: #fff;
+        width: 100%;
+        max-width: 520px;
+        border-radius: 14px;
+        padding: 24px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+      }
+      .modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 16px;
+      }
+      .modal-header h3 {
+        margin: 0;
+        font-size: 18px;
+      }
+      .close-btn {
+        background: none;
+        border: none;
+        font-size: 20px;
+        cursor: pointer;
+        color: var(--muted);
+      }
+      footer {
+        text-align: center;
+        color: #8792a0;
+        font-size: 10px;
+        padding: 30px;
+      }
+
+      /* COMPREHENSIVE MOBILE & TABLET RESPONSIVENESS */
+      @media (max-width: 900px) {
+        header {
+          padding: 12px 16px;
+          flex-direction: row;
+          align-items: center;
+        }
+        .layout {
+          display: block;
+        }
+        aside {
+          position: sticky;
+          top: 60px;
+          z-index: 15;
+          height: auto;
+          max-height: 140px;
+          border-right: 0;
+          border-bottom: 1px solid var(--line);
+          padding: 12px;
+          background: #fff;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        nav {
+          display: flex;
+          overflow-x: auto;
+          gap: 6px;
+          padding-bottom: 4px;
+          -webkit-overflow-scrolling: touch;
+        }
+        nav a {
+          min-width: max-content;
+          padding: 6px 12px;
+          background: #f8fafc;
+          border: 1px solid #e2e8f0;
+          border-radius: 20px;
+          font-size: 11px;
+        }
+        nav a.done {
+          background: #eaf7f1;
+          border-color: #b9ddce;
+        }
+        main {
+          padding: 18px 14px;
+        }
+        .hero {
+          padding: 24px 18px;
+          border-radius: 14px;
+        }
+        .hero h1 {
+          font-size: 26px;
+        }
+        .policy,
+        .ack,
+        #hrLogsPanel {
+          padding: 18px 14px;
+          border-radius: 12px;
+        }
+        .grid {
+          grid-template-columns: 1fr;
+          gap: 10px;
+        }
+        .sigBtns {
+          flex-wrap: wrap;
+        }
+        .actions {
+          flex-direction: column;
+          gap: 10px;
+        }
+        .actions button {
+          width: 100%;
+        }
+        .hr-toolbar {
+          flex-direction: column;
+          align-items: stretch;
+        }
+        .hr-search-box {
+          flex-direction: column;
+          width: 100%;
+        }
+        .hr-search-box select {
+          max-width: 100% !important;
+        }
+      }
+
+      @media (max-width: 480px) {
+        header {
+          padding: 10px 12px;
+        }
+        .brand-container {
+          gap: 8px;
+        }
+        .brand-logo {
+          height: 30px;
+        }
+        .brand {
+          font-size: 14px;
+        }
+        .brand small {
+          font-size: 8px;
+        }
+        .hr-nav-btn {
+          padding: 5px 10px;
+          font-size: 10px;
+        }
+        .ver {
+          display: none;
+        }
+        .hero h1 {
+          font-size: 22px;
+        }
+        .chips {
+          gap: 5px;
+        }
+        .chip {
+          font-size: 9px;
+          padding: 4px 8px;
+        }
+        h2 {
+          font-size: 18px;
+        }
+        .stat-card .stat-val {
+          font-size: 20px;
+        }
+      }
+
+      @media print {
+        header,
+        aside,
+        .readBtn,
+        .sigBtns,
+        .actions,
+        #hrLogsPanel,
+        .hr-toolbar,
+        #toast-container {
+          display: none !important;
+        }
+        .layout {
+          display: block;
+        }
+        main {
+          max-width: none;
+          padding: 0;
+        }
+        .hero {
+          background: #fff;
+          color: #000;
+          border: 1px solid #ddd;
+          box-shadow: none;
+        }
+        .hero p {
+          color: #333;
+        }
+        .policy,
+        .ack {
+          box-shadow: none;
+          break-inside: avoid;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="brand-container">
+        <img src="img/Astys Logo white & balck.png" alt="Astys Logo" class="brand-logo" onerror="this.style.display='none'" />
+        <div class="brand">
+          Astys Audio Video Pvt. Ltd.<small>Company Policy Portal</small>
+        </div>
+      </div>
+      <div class="header-right">
+        <!-- HR LOGIN / LOGS BUTTON -->
+        <button class="hr-nav-btn" id="hrNavBtn" onclick="handleHrNavClick()">
+          <span id="hrNavIcon">🔒</span> <span id="hrNavText">HR Login</span>
+        </button>
+
+        <div class="ver">Version 1.0<br />Effective 1 Dec 2026</div>
+      </div>
+    </header>
+
+    <div class="layout" id="mainLayout">
+      <!-- SIDEBAR NAVIGATION (EMPLOYEE MODE) -->
+      <aside id="policySidebar">
+        <div class="progressTop">
+          <span>POLICY REVIEW</span><span id="pct">0%</span>
+        </div>
+        <div class="bar"><div id="fill"></div></div>
+        <nav>
+          <a href="#s1" id="n1"><span class="num">1</span><span>Purpose, Scope &amp; Applicability</span></a>
+          <a href="#s2" id="n2"><span class="num">2</span><span>Employment, Joining &amp; Probation</span></a>
+          <a href="#s3" id="n3"><span class="num">3</span><span>Working Hours &amp; Attendance</span></a>
+          <a href="#s4" id="n4"><span class="num">4</span><span>Full Day, Half Day &amp; Short Leave</span></a>
+          <a href="#s5" id="n5"><span class="num">5</span><span>Overtime &amp; Additional Hours</span></a>
+          <a href="#s6" id="n6"><span class="num">6</span><span>Leave, Weekly Rest &amp; Holidays</span></a>
+          <a href="#s7" id="n7"><span class="num">7</span><span>Local Travel &amp; Petrol Reimbursement</span></a>
+          <a href="#s8" id="n8"><span class="num">8</span><span>Cab &amp; Local Transport Policy</span></a>
+          <a href="#s9" id="n9"><span class="num">9</span><span>Outstation Duty &amp; Travel</span></a>
+          <a href="#s10" id="n10"><span class="num">10</span><span>Expense &amp; Reimbursement</span></a>
+          <a href="#s11" id="n11"><span class="num">11</span><span>Material, Tools &amp; Assets</span></a>
+          <a href="#s12" id="n12"><span class="num">12</span><span>Code of Conduct &amp; Equal Treatment</span></a>
+          <a href="#s13" id="n13"><span class="num">13</span><span>Client, Vendor &amp; Confidentiality</span></a>
+          <a href="#s14" id="n14"><span class="num">14</span><span>Site Safety &amp; Project Discipline</span></a>
+          <a href="#s15" id="n15"><span class="num">15</span><span>HR &amp; Grievance Resolution</span></a>
+          <a href="#s16" id="n16"><span class="num">16</span><span>Prevention of Harassment</span></a>
+          <a href="#s17" id="n17"><span class="num">17</span><span>Discipline &amp; Misconduct</span></a>
+          <a href="#s18" id="n18"><span class="num">18</span><span>Suspension &amp; Termination</span></a>
+          <a href="#s19" id="n19"><span class="num">19</span><span>Performance &amp; Development</span></a>
+          <a href="#s20" id="n20"><span class="num">20</span><span>Resignation, Handover &amp; Exit</span></a>
+          <a href="#s21" id="n21"><span class="num">21</span><span>Policy Administration</span></a>
+        </nav>
+      </aside>
+
+      <main id="mainContent">
+        <!-- EMPLOYEE POLICY & ACKNOWLEDGEMENT CONTAINER -->
+        <div id="employeePolicyView">
+          <section class="hero">
+            <div class="over">Employee Policy Manual</div>
+            <h1>Company policies,<br />clearly documented.</h1>
+            <p>
+              This portal contains the complete employee policy manual of Astys
+              Audio Video Pvt. Ltd. Review every section and complete the
+              acknowledgement at the end. All records are securely synchronized to Supabase.
+            </p>
+            <div class="chips">
+              <span class="chip">Version 1.0</span>
+              <span class="chip">Effective 01 Dec 2026</span>
+              <span class="chip">10:00 AM–7:00 PM</span>
+              <span class="chip">3 Month Probation</span>
+              <span class="chip">10 Public Holidays</span>
+            </div>
+          </section>
+
+          <!-- SECTIONS 1 TO 21 -->
+          <section class="policy" id="s1" data-index="1">
+            <div class="section-head">
+              <span>SECTION 01</span>
+              <button class="readBtn" type="button" onclick="markRead(1)">Mark as Read</button>
+            </div>
+            <h2>1. Purpose, Scope &amp; Applicability</h2>
+            <p>This Company Policy Manual establishes the employment, attendance, conduct, operational, safety and workplace standards applicable at <strong>Astys Audio Video Pvt. Ltd.</strong></p>
+            <p>The purpose of this Manual is to maintain a professional, fair, disciplined, safe and accountable working environment while providing employees with clear expectations regarding their employment.</p>
+            <p>This Manual applies to all employees of Astys Audio Video Pvt. Ltd., subject to their respective appointment letters, nature of employment, role and applicable law.</p>
+            <p>Where any provision of this Manual provides less than a mandatory statutory entitlement, the applicable statutory provision shall prevail to the extent required by law.</p>
+            <p>Management may issue Standard Operating Procedures (SOPs), circulars, instructions and departmental rules for implementation of this Manual.</p>
+          </section>
+
+          <section class="policy" id="s2" data-index="2">
+            <div class="section-head">
+              <span>SECTION 02</span>
+              <button class="readBtn" type="button" onclick="markRead(2)">Mark as Read</button>
+            </div>
+            <h2>2. Employment, Joining &amp; Probation</h2>
+            <h3>2.1 Employment Documentation</h3>
+            <p>Every employee shall be issued employment documentation containing applicable terms including designation, remuneration, reporting structure and other relevant conditions.</p>
+            <p>Employees must provide complete and genuine documents and information required for employment, payroll, statutory compliance and verification. Submission of materially false information or forged documents may constitute misconduct.</p>
+            <h3>2.2 Probation</h3>
+            <p>Every newly appointed employee shall normally be placed on <strong>probation for three (3) months</strong>, unless otherwise stated in writing.</p>
+            <p>During probation, the employee may be assessed on performance and quality of work, attendance and punctuality, professional behaviour, technical or functional competency, discipline, learning ability, responsibility, ownership and overall suitability for the position.</p>
+            <p>Successful completion of three months does not by itself constitute automatic confirmation. Confirmation shall be subject to the terms of employment and communication by Astys Audio Video Pvt. Ltd.</p>
+          </section>
+
+          <section class="policy" id="s3" data-index="3">
+            <div class="section-head">
+              <span>SECTION 03</span>
+              <button class="readBtn" type="button" onclick="markRead(3)">Mark as Read</button>
+            </div>
+            <h2>3. Working Hours &amp; Attendance</h2>
+            <h3>3.1 Normal Working Schedule</h3>
+            <div class="rule">
+              <strong>Reporting Time: 10:00 AM</strong><br />
+              <strong>Closing Time: 7:00 PM</strong>
+            </div>
+            <p>The standard schedule represents a <strong>9-hour presence window</strong>, inclusive of authorised meal/rest intervals.</p>
+            <div class="table-responsive">
+              <table>
+                <tr><th>Particular</th><th>Time</th></tr>
+                <tr><td>Punch-In</td><td>10:00 AM</td></tr>
+                <tr><td>Punch-Out</td><td>7:00 PM</td></tr>
+                <tr><td>Total Presence</td><td>9 Hours</td></tr>
+                <tr><td>Meal/Rest Interval</td><td>1 Hour</td></tr>
+                <tr><td>Calculated Working Time</td><td>8 Hours</td></tr>
+              </table>
+            </div>
+            <p><strong>9 Hours Presence = 8 Hours Calculated Working Time.</strong></p>
+            <h3>3.2 Office Reporting</h3>
+            <p>An employee scheduled for office duty must be present and ready for work at the office by <strong>10:00 AM</strong>.</p>
+            <h3>3.3 Site Reporting</h3>
+            <p>Where an employee is instructed to report directly to a project site, the employee must <strong>reach the assigned site by 10:00 AM</strong>.</p>
+            <h3>3.4 Attendance Recording</h3>
+            <p>Every employee must record attendance through the method prescribed by Astys Audio Video Pvt. Ltd. Proxy punching or false location recording is strictly prohibited.</p>
+          </section>
+
+          <section class="policy" id="s4" data-index="4">
+            <div class="section-head">
+              <span>SECTION 04</span>
+              <button class="readBtn" type="button" onclick="markRead(4)">Mark as Read</button>
+            </div>
+            <h2>4. Full Day, Half Day &amp; Short Leave</h2>
+            <p>Attendance shall primarily be determined from actual verified working hours.</p>
+            <h3>4.1 Full Day</h3>
+            <p>A standard Full Day requires completion of <strong>8 calculated working hours</strong>.</p>
+            <h3>4.2 Half Day</h3>
+            <p>A Half Day shall generally mean completion of approximately <strong>4 calculated working hours</strong>.</p>
+            <div class="rule">
+              <strong>First Half:</strong> 10:00 AM–2:00 PM<br />
+              <strong>Second Half:</strong> 3:00 PM–7:00 PM
+            </div>
+            <h3>4.3 Late Punch-In / Grace Period</h3>
+            <p>A grace period of <strong>15 minutes</strong> is allowed for occasional late punch-in.</p>
+          </section>
+
+          <section class="policy" id="s5" data-index="5">
+            <div class="section-head">
+              <span>SECTION 05</span>
+              <button class="readBtn" type="button" onclick="markRead(5)">Mark as Read</button>
+            </div>
+            <h2>5. Overtime &amp; Additional Working Hours</h2>
+            <p>Overtime shall arise only where additional work is approved by the designated authority and eligible under policy/law.</p>
+          </section>
+
+          <section class="policy" id="s6" data-index="6">
+            <div class="section-head">
+              <span>SECTION 06</span>
+              <button class="readBtn" type="button" onclick="markRead(6)">Mark as Read</button>
+            </div>
+            <h2>6. Leave, Weekly Rest &amp; Public Holidays</h2>
+            <h3>6.1 Company Monthly Leave</h3>
+            <p>Astys Audio Video Pvt. Ltd. provides an internal allocation of <strong>one (1) leave per month</strong>.</p>
+            <h3>6.2 Public Holidays</h3>
+            <p>The Company maintains an annual calendar of <strong>10 public holidays</strong>.</p>
+          </section>
+
+          <section class="policy" id="s7" data-index="7">
+            <div class="section-head">
+              <span>SECTION 07</span>
+              <button class="readBtn" type="button" onclick="markRead(7)">Mark as Read</button>
+            </div>
+            <h2>7. Local Travel &amp; Petrol Reimbursement</h2>
+            <div class="rule">
+              <strong>Approved reimbursement: ₹5 per kilometre</strong> (Personal Two-Wheeler)
+            </div>
+            <p>Travel reimbursement requires logged details: Date → From → To → Site/Project → Purpose → Kilometres.</p>
+          </section>
+
+          <section class="policy" id="s8" data-index="8">
+            <div class="section-head">
+              <span>SECTION 08</span>
+              <button class="readBtn" type="button" onclick="markRead(8)">Mark as Read</button>
+            </div>
+            <h2>8. Cab &amp; Local Transport Policy</h2>
+            <p>Routine cab usage within the city is permitted only with prior approval for material transport or emergency needs.</p>
+          </section>
+
+          <section class="policy" id="s9" data-index="9">
+            <div class="section-head">
+              <span>SECTION 09</span>
+              <button class="readBtn" type="button" onclick="markRead(9)">Mark as Read</button>
+            </div>
+            <h2>9. Outstation Duty &amp; Travel</h2>
+            <p>Company-funded food and accommodation apply exclusively to eligible outstation assignments outside the local city limits.</p>
+          </section>
+
+          <section class="policy" id="s10" data-index="10">
+            <div class="section-head">
+              <span>SECTION 10</span>
+              <button class="readBtn" type="button" onclick="markRead(10)">Mark as Read</button>
+            </div>
+            <h2>10. Expense &amp; Reimbursement</h2>
+            <p>Only genuine, authorised business expenses accompanied by verified bills shall be reimbursed.</p>
+          </section>
+
+          <section class="policy" id="s11" data-index="11">
+            <div class="section-head">
+              <span>SECTION 11</span>
+              <button class="readBtn" type="button" onclick="markRead(11)">Mark as Read</button>
+            </div>
+            <h2>11. Material, Tools, Equipment &amp; Company Assets</h2>
+            <p>Employees must exercise care with Company/client property (AV equipment, laptops, tools, testing gear).</p>
+          </section>
+
+          <section class="policy" id="s12" data-index="12">
+            <div class="section-head">
+              <span>SECTION 12</span>
+              <button class="readBtn" type="button" onclick="markRead(12)">Mark as Read</button>
+            </div>
+            <h2>12. Code of Conduct &amp; Equal Treatment</h2>
+            <div class="rule">
+              <strong>Seniority provides authority to manage work; it does not provide authority to mistreat people.</strong>
+            </div>
+            <p>Every team member is entitled to professional, respectful and non-discriminatory treatment.</p>
+          </section>
+
+          <section class="policy" id="s13" data-index="13">
+            <div class="section-head">
+              <span>SECTION 13</span>
+              <button class="readBtn" type="button" onclick="markRead(13)">Mark as Read</button>
+            </div>
+            <h2>13. Client, Vendor &amp; Confidentiality</h2>
+            <p>Confidential information (pricing, client data, passwords, designs) must not be disclosed without authorization.</p>
+          </section>
+
+          <section class="policy" id="s14" data-index="14">
+            <div class="section-head">
+              <span>SECTION 14</span>
+              <button class="readBtn" type="button" onclick="markRead(14)">Mark as Read</button>
+            </div>
+            <h2>14. Site Safety &amp; Project Discipline</h2>
+            <p>Employees must strictly adhere to site safety instructions, PPE mandates, electrical safety and site cleanliness.</p>
+          </section>
+
+          <section class="policy" id="s15" data-index="15">
+            <div class="section-head">
+              <span>SECTION 15</span>
+              <button class="readBtn" type="button" onclick="markRead(15)">Mark as Read</button>
+            </div>
+            <h2>15. HR, Grievance &amp; Internal Resolution</h2>
+            <p>HR is the primary point of contact for employee concerns, workplace conflicts, payroll questions and grievances.</p>
+          </section>
+
+          <section class="policy" id="s16" data-index="16">
+            <div class="section-head">
+              <span>SECTION 16</span>
+              <button class="readBtn" type="button" onclick="markRead(16)">Mark as Read</button>
+            </div>
+            <h2>16. Prevention of Harassment</h2>
+            <p>The Company maintains zero tolerance for harassment, including sexual harassment, under applicable law (POSH).</p>
+          </section>
+
+          <section class="policy" id="s17" data-index="17">
+            <div class="section-head">
+              <span>SECTION 17</span>
+              <button class="readBtn" type="button" onclick="markRead(17)">Mark as Read</button>
+            </div>
+            <h2>17. Discipline &amp; Misconduct</h2>
+            <p>Misconduct carries progressive disciplinary action: Counselling → Verbal Warning → Written Warning → Escalation.</p>
+          </section>
+
+          <section class="policy" id="s18" data-index="18">
+            <div class="section-head">
+              <span>SECTION 18</span>
+              <button class="readBtn" type="button" onclick="markRead(18)">Mark as Read</button>
+            </div>
+            <h2>18. Suspension, Investigation &amp; Termination</h2>
+            <p>Serious allegations warrant immediate investigation, interim suspension, and due process in accordance with law.</p>
+          </section>
+
+          <section class="policy" id="s19" data-index="19">
+            <div class="section-head">
+              <span>SECTION 19</span>
+              <button class="readBtn" type="button" onclick="markRead(19)">Mark as Read</button>
+            </div>
+            <h2>19. Performance &amp; Development</h2>
+            <p>Regular reviews evaluate quality, punctuality, teamwork and adherence to standards.</p>
+          </section>
+
+          <section class="policy" id="s20" data-index="20">
+            <div class="section-head">
+              <span>SECTION 20</span>
+              <button class="readBtn" type="button" onclick="markRead(20)">Mark as Read</button>
+            </div>
+            <h2>20. Resignation, Handover &amp; Exit</h2>
+            <p>Compliant notice period, full handover of projects/assets, and formal exit clearance are required prior to settlement.</p>
+          </section>
+
+          <section class="policy" id="s21" data-index="21">
+            <div class="section-head">
+              <span>SECTION 21</span>
+              <button class="readBtn" type="button" onclick="markRead(21)">Mark as Read</button>
+            </div>
+            <h2>21. Policy Administration</h2>
+            <p>Management reserves the right to amend policies as necessary to comply with changing laws or operational needs.</p>
+          </section>
+
+          <!-- EMPLOYEE ACKNOWLEDGEMENT FORM -->
+          <section class="ack" id="ack">
+            <div class="section-head"><span>FINAL ACKNOWLEDGEMENT</span></div>
+            <h2>Employee Acknowledgement &amp; Consent</h2>
+            <p>
+              I acknowledge that I have been provided access to and have read the
+              <strong>Astys Audio Video Pvt. Ltd. Company Policy Manual, Version 1.0</strong>.
+            </p>
+            <div class="grid">
+              <div>
+                <label class="lbl">Employee Name *</label>
+                <input type="text" id="name" placeholder="e.g. Rahul Sharma" />
+              </div>
+              <div>
+                <label class="lbl">Employee ID *</label>
+                <input type="text" id="eid" placeholder="e.g. AST-104" />
+              </div>
+              <div>
+                <label class="lbl">Designation *</label>
+                <input type="text" id="desig" placeholder="e.g. Senior AV Engineer" />
+              </div>
+              <div>
+                <label class="lbl">Department *</label>
+                <select id="dept">
+                  <option value="">Select Department...</option>
+                  <option value="Engineering & Projects">Engineering &amp; Projects</option>
+                  <option value="Sales & Business Development">Sales &amp; Business Development</option>
+                  <option value="Accounts & Finance">Accounts &amp; Finance</option>
+                  <option value="Operations & Logistics">Operations &amp; Logistics</option>
+                  <option value="HR & Administration">HR &amp; Administration</option>
+                  <option value="Management">Management</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- DECLARATION CHECKBOXES WITH MASTER SELECT ALL -->
+            <div style="display: flex; justify-content: space-between; align-items: center; margin: 20px 0 10px; flex-wrap: wrap; gap: 8px;">
+              <h3 style="margin: 0;">Declaration</h3>
+              <label class="check-all-label">
+                <input type="checkbox" id="selectAllCons" onchange="toggleAllDeclarations(this)" />
+                <span>Select / Unselect All</span>
+              </label>
+            </div>
+
+            <label class="check"><input type="checkbox" class="cons" /><span>I confirm that I have read the complete Company Policy Manual.</span></label>
+            <label class="check"><input type="checkbox" class="cons" /><span>I understand the policies and responsibilities applicable to me.</span></label>
+            <label class="check"><input type="checkbox" class="cons" /><span>I agree to comply with applicable Company policies, safety requirements and lawful workplace instructions.</span></label>
+            <label class="check"><input type="checkbox" class="cons" /><span>I understand that policy violations may result in corrective or disciplinary action.</span></label>
+            <label class="check"><input type="checkbox" class="cons" /><span>I consent to this electronic acknowledgement being stored in the cloud database (Supabase).</span></label>
+
+            <h3>Electronic Signature</h3>
+            <div class="sigBtns">
+              <button class="active" id="draw" type="button">Draw Signature</button>
+              <button id="type" type="button">Type Signature</button>
+              <button id="clear" type="button">Clear</button>
+            </div>
+            <canvas id="canvas"></canvas>
+            <div id="typeBox">
+              <input type="text" id="typed" placeholder="Type full name as signature" />
+            </div>
+            <div style="margin-top: 12px">
+              <label class="lbl">Place *</label>
+              <input type="text" id="place" placeholder="e.g. Pune" />
+            </div>
+            <p class="note">
+              By selecting “Acknowledge & Sign Policy”, your consent, IP signature timestamp and details will be securely saved to the Supabase database.
+            </p>
+            <div class="actions">
+              <button class="secondary" type="button" onclick="window.print()">Print / Save Copy</button>
+              <button class="primary" id="submit" type="button">Acknowledge &amp; Sign Policy</button>
+            </div>
+            <div id="success"></div>
+          </section>
+        </div>
+
+        <!-- HR LOGS ONLY PANEL (UNLOCKED UPON HR LOGIN) -->
+        <section class="records" id="hrLogsPanel">
+          <div class="hr-panel-header">
+            <div>
+              <span style="font-size: 10px; font-weight: 800; letter-spacing: 1px; color: var(--blue);">HR ADMIN PORTAL</span>
+              <h2>📋 HR Acknowledgement Logs</h2>
+            </div>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+              <button class="secondary btn-sm" id="togglePolicyBtn" onclick="togglePolicyVisibility()">
+                <span id="togglePolicyText">📄 View Policy Manual</span>
+              </button>
+              <button class="btn-danger btn-sm" onclick="logoutHr()">Logout HR</button>
+            </div>
+          </div>
+
+          <!-- HR KPI DASHBOARD STATS -->
+          <div class="hr-stats-grid">
+            <div class="stat-card">
+              <div class="stat-val" id="kpiTotal">0</div>
+              <div class="stat-lbl">Total Sign-Off Logs</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-val" id="kpiDepts">0</div>
+              <div class="stat-lbl">Active Departments</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-val" id="kpiLatest" style="font-size: 16px; margin-top: 4px;">-</div>
+              <div class="stat-lbl">Latest Submission</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-val" id="kpiSync" style="font-size: 16px; margin-top: 4px;">Local</div>
+              <div class="stat-lbl">Database Sync</div>
+            </div>
+          </div>
+
+          <p class="note">
+            Real-time policy log portal synchronized with Supabase cloud database. Search employee sign-offs, filter by department, inspect certificates, and export CSV compliance reports.
+          </p>
+
+          <div class="hr-toolbar">
+            <div class="hr-search-box">
+              <input type="text" id="searchRecord" placeholder="Search logs by employee name, ID or record ID..." oninput="filterRecords()" />
+              <select id="filterDept" onchange="filterRecords()" style="max-width: 200px;">
+                <option value="">All Departments</option>
+                <option value="Engineering & Projects">Engineering &amp; Projects</option>
+                <option value="Sales & Business Development">Sales &amp; Business</option>
+                <option value="Accounts & Finance">Accounts &amp; Finance</option>
+                <option value="Operations & Logistics">Operations &amp; Logistics</option>
+                <option value="HR & Administration">HR &amp; Admin</option>
+                <option value="Management">Management</option>
+              </select>
+            </div>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+              <button class="secondary btn-sm" type="button" onclick="openConfigModal()">⚡ Supabase Keys</button>
+              <button class="secondary btn-sm" type="button" onclick="fetchRecords()">Refresh</button>
+              <button class="primary btn-sm" type="button" onclick="exportRecordsCSV()">Export CSV</button>
+            </div>
+          </div>
+
+          <div class="table-responsive">
+            <table>
+              <thead>
+                <tr>
+                  <th>Employee</th>
+                  <th>ID</th>
+                  <th>Department</th>
+                  <th>Signed On</th>
+                  <th>Record ID</th>
+                  <th>Source</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="tbody">
+                <tr>
+                  <td colspan="7">Loading logs from Supabase...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <footer>
+          Astys Audio Video Pvt. Ltd. · Company Policy Manual · Version 1.0
+        </footer>
+      </main>
+    </div>
+
+    <!-- HR LOGIN MODAL -->
+    <div class="modal-backdrop" id="hrLoginModal">
+      <div class="modal-card" style="max-width: 420px;">
+        <div class="modal-header">
+          <h3>HR Admin Login</h3>
+          <button class="close-btn" onclick="closeHrLoginModal()">&times;</button>
+        </div>
+        <p class="note" style="margin-bottom: 16px;">
+          Log in with HR credentials to open the HR Acknowledgement Logs panel.
+        </p>
+        <form onsubmit="handleHrLoginSubmit(event)">
+          <div style="margin-bottom: 14px;">
+            <label class="lbl">Username</label>
+            <input type="text" id="hrUsername" placeholder="admin" required />
+          </div>
+          <div style="margin-bottom: 16px;">
+            <label class="lbl">Password</label>
+            <input type="password" id="hrPassword" placeholder="••••••••" required />
+          </div>
+          <div class="note" style="background: #f0f4f8; padding: 8px 12px; border-radius: 6px; margin-bottom: 16px;">
+            🔑 Default Credentials: Username <code>admin</code> / Password <code>admin123</code>
+          </div>
+          <div class="actions">
+            <button class="secondary" type="button" onclick="closeHrLoginModal()">Cancel</button>
+            <button class="primary" type="submit">Log In to HR Logs</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- SUPABASE CONFIGURATION MODAL -->
+    <div class="modal-backdrop" id="configModal">
+      <div class="modal-card">
+        <div class="modal-header">
+          <h3>Supabase Credentials Setup</h3>
+          <button class="close-btn" onclick="closeConfigModal()">&times;</button>
+        </div>
+        <p class="note" style="margin-bottom: 14px;">
+          Enter your Supabase Project URL and Anon Key below to enable cloud database storage.
+        </p>
+        <div style="margin-bottom: 12px;">
+          <label class="lbl">Supabase Project URL</label>
+          <input type="text" id="cfgUrl" placeholder="https://your-project.supabase.co" />
+        </div>
+        <div style="margin-bottom: 16px;">
+          <label class="lbl">Supabase Anon Public Key</label>
+          <input type="text" id="cfgKey" placeholder="eyJhbGciOiJIUzI1NiIsInR5cCI6..." />
+        </div>
+        <div class="actions">
+          <button class="secondary" type="button" onclick="clearSupabaseConfig()">Clear Config</button>
+          <button class="primary" type="button" onclick="saveSupabaseConfig()">Save &amp; Connect</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- CERTIFICATE VIEW MODAL -->
+    <div class="modal-backdrop" id="certModal">
+      <div class="modal-card" style="max-width: 600px;">
+        <div class="modal-header">
+          <h3>Acknowledgement Certificate</h3>
+          <button class="close-btn" onclick="closeCertModal()">&times;</button>
+        </div>
+        <div id="certBody" style="font-size: 13px; line-height: 1.6;">
+          <!-- Content dynamically rendered -->
+        </div>
+        <div class="actions" style="margin-top: 20px;">
+          <button class="secondary" type="button" onclick="closeCertModal()">Close</button>
+          <button class="primary" type="button" onclick="printCert()">Print Certificate</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- TOAST CONTAINER -->
+    <div id="toast-container"></div>
+
+    <script>
+      const TOTAL_SECTIONS = 21;
+      const readSections = new Set(
+        JSON.parse(localStorage.getItem("astys_read_v2") || "[]")
+      );
+
+      // Default Supabase Env Config
+      window.ENV_SUPABASE_URL = "https://cnhpywstdyfphcseukls.supabase.co";
+      window.ENV_SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNuaHB5d3N0ZHlmcGhjc2V1a2xzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTEyNjcyNTgsImV4cCI6MjEwNjg0MzI1OH0.0dxYaQdl_GYpFVAzCXMBJJGn2ysjxvewlZZ5VqixP1Y";
+
+      let supabaseClient = null;
+      let allLoadedRecords = [];
+      let isHrLoggedIn = false;
+      let showingPolicyToHr = false;
+
+      // Initialize Supabase Client
+      function initSupabase() {
+        const url = localStorage.getItem("astys_supabase_url") || window.ENV_SUPABASE_URL;
+        const key = localStorage.getItem("astys_supabase_anon_key") || window.ENV_SUPABASE_ANON_KEY;
+
+        if (url && key && window.supabase) {
+          try {
+            supabaseClient = window.supabase.createClient(url, key);
+            updateStatusBadge(true, "Supabase: Connected");
+            return true;
+          } catch (e) {
+            console.error("Supabase connection error:", e);
+            updateStatusBadge(false, "Supabase: Connection Error");
+          }
+        } else {
+          updateStatusBadge(false, "Supabase: Configure Key");
+        }
+        return false;
+      }
+
+      function updateStatusBadge(connected, text) {
+        const dot = document.getElementById("statusDot");
+        const txt = document.getElementById("statusText");
+        if (dot) {
+          if (connected) dot.classList.add("connected");
+          else dot.classList.remove("connected");
+        }
+        if (txt) txt.textContent = text;
+      }
+
+      // Declaration Checkbox Toggle Sync
+      function toggleAllDeclarations(masterBox) {
+        const checkboxes = document.querySelectorAll(".cons");
+        checkboxes.forEach((cb) => {
+          cb.checked = masterBox.checked;
+          if (masterBox.checked) {
+            cb.parentElement.classList.remove("check-error");
+          }
+        });
+      }
+
+      function initCheckboxListeners() {
+        const consBoxes = document.querySelectorAll(".cons");
+        const masterBox = document.getElementById("selectAllCons");
+        consBoxes.forEach((cb) => {
+          cb.addEventListener("change", () => {
+            if (masterBox) {
+              masterBox.checked = [...consBoxes].every((box) => box.checked);
+            }
+            if (cb.checked) {
+              cb.parentElement.classList.remove("check-error");
+            }
+          });
+        });
+      }
+
+      // HR Auth & View Management
+      function checkHrAuthStatus() {
+        const savedAuth = sessionStorage.getItem("astys_hr_auth");
+        if (savedAuth === "true") {
+          setHrLoggedInState(true);
+        } else {
+          setHrLoggedInState(false);
+        }
+      }
+
+      function setHrLoggedInState(loggedIn) {
+        isHrLoggedIn = loggedIn;
+        const navBtn = document.getElementById("hrNavBtn");
+        const navIcon = document.getElementById("hrNavIcon");
+        const navText = document.getElementById("hrNavText");
+        const hrLogsPanel = document.getElementById("hrLogsPanel");
+        const employeePolicyView = document.getElementById("employeePolicyView");
+        const policySidebar = document.getElementById("policySidebar");
+        const mainLayout = document.getElementById("mainLayout");
+
+        if (loggedIn) {
+          navBtn.classList.add("logged-in");
+          navIcon.textContent = "🔓";
+          navText.textContent = "HR Logs";
+
+          // Hide policy text & sidebar for HR mode -> Show HR Logs panel ONLY
+          employeePolicyView.style.display = "none";
+          policySidebar.style.display = "none";
+          mainLayout.style.gridTemplateColumns = "1fr"; // Expand to full width for logs
+          hrLogsPanel.style.display = "block";
+          showingPolicyToHr = false;
+          updateTogglePolicyBtnText();
+        } else {
+          navBtn.classList.remove("logged-in");
+          navIcon.textContent = "🔒";
+          navText.textContent = "HR Login";
+
+          // Show policy manual & sidebar for regular employee view
+          employeePolicyView.style.display = "block";
+          policySidebar.style.display = "block";
+          mainLayout.style.gridTemplateColumns = ""; // Restore grid
+          hrLogsPanel.style.display = "none";
+        }
+      }
+
+      function togglePolicyVisibility() {
+        showingPolicyToHr = !showingPolicyToHr;
+        const employeePolicyView = document.getElementById("employeePolicyView");
+        const policySidebar = document.getElementById("policySidebar");
+        const mainLayout = document.getElementById("mainLayout");
+
+        if (showingPolicyToHr) {
+          employeePolicyView.style.display = "block";
+          policySidebar.style.display = "block";
+          mainLayout.style.gridTemplateColumns = window.innerWidth > 900 ? "285px minmax(0, 1fr)" : "1fr";
+          employeePolicyView.scrollIntoView({ behavior: "smooth" });
+        } else {
+          employeePolicyView.style.display = "none";
+          policySidebar.style.display = "none";
+          mainLayout.style.gridTemplateColumns = "1fr";
+          document.getElementById("hrLogsPanel").scrollIntoView({ behavior: "smooth" });
+        }
+        updateTogglePolicyBtnText();
+      }
+
+      function updateTogglePolicyBtnText() {
+        const btnText = document.getElementById("togglePolicyText");
+        if (btnText) {
+          btnText.textContent = showingPolicyToHr ? "📋 Back to HR Logs Only" : "📄 View Policy Manual";
+        }
+      }
+
+      function handleHrNavClick() {
+        if (isHrLoggedIn) {
+          const hrLogsPanel = document.getElementById("hrLogsPanel");
+          hrLogsPanel.scrollIntoView({ behavior: "smooth" });
+        } else {
+          openHrLoginModal();
+        }
+      }
+
+      function openHrLoginModal() {
+        document.getElementById("hrLoginModal").style.display = "flex";
+      }
+
+      function closeHrLoginModal() {
+        document.getElementById("hrLoginModal").style.display = "none";
+      }
+
+      function handleHrLoginSubmit(event) {
+        event.preventDefault();
+        const user = document.getElementById("hrUsername").value.trim();
+        const pass = document.getElementById("hrPassword").value.trim();
+
+        if ((user === "admin" || user === "hr@astys.in") && (pass === "admin123" || pass === "admin")) {
+          sessionStorage.setItem("astys_hr_auth", "true");
+          setHrLoggedInState(true);
+          closeHrLoginModal();
+          showToast("Welcome HR Admin! Showing HR logs panel.", "success");
+          fetchRecords();
+        } else {
+          showToast("Invalid HR Username or Password", "error");
+        }
+      }
+
+      function logoutHr() {
+        sessionStorage.removeItem("astys_hr_auth");
+        setHrLoggedInState(false);
+        showToast("HR logged out successfully.", "info");
+      }
+
+      function openConfigModal() {
+        document.getElementById("cfgUrl").value = localStorage.getItem("astys_supabase_url") || "";
+        document.getElementById("cfgKey").value = localStorage.getItem("astys_supabase_anon_key") || "";
+        document.getElementById("configModal").style.display = "flex";
+      }
+
+      function closeConfigModal() {
+        document.getElementById("configModal").style.display = "none";
+      }
+
+      function saveSupabaseConfig() {
+        const url = document.getElementById("cfgUrl").value.trim();
+        const key = document.getElementById("cfgKey").value.trim();
+        if (!url || !key) {
+          return showToast("Please provide both Supabase URL and Anon Key", "error");
+        }
+        localStorage.setItem("astys_supabase_url", url);
+        localStorage.setItem("astys_supabase_anon_key", key);
+        closeConfigModal();
+        initSupabase();
+        fetchRecords();
+        showToast("Supabase credentials saved successfully!", "success");
+      }
+
+      function clearSupabaseConfig() {
+        localStorage.removeItem("astys_supabase_url");
+        localStorage.removeItem("astys_supabase_anon_key");
+        supabaseClient = null;
+        updateStatusBadge(false, "Supabase: Disconnected");
+        closeConfigModal();
+        fetchRecords();
+        showToast("Supabase credentials cleared.", "info");
+      }
+
+      // Toast Notification System
+      function showToast(msg, type = "info") {
+        const container = document.getElementById("toast-container");
+        const toast = document.createElement("div");
+        toast.className = `toast ${type}`;
+        toast.textContent = msg;
+        container.appendChild(toast);
+        setTimeout(() => {
+          toast.style.opacity = "0";
+          setTimeout(() => toast.remove(), 300);
+        }, 3500);
+      }
+
+      // Policy Reading Progress
+      function updateProgress() {
+        const percentage = Math.round((readSections.size / TOTAL_SECTIONS) * 100);
+        document.getElementById("pct").textContent = percentage + "%";
+        document.getElementById("fill").style.width = percentage + "%";
+
+        for (let i = 1; i <= TOTAL_SECTIONS; i++) {
+          const navItem = document.getElementById("n" + i);
+          const readBtn = document.querySelector("#s" + i + " .readBtn");
+
+          if (readSections.has(i)) {
+            if (navItem) {
+              navItem.classList.add("done");
+              const numSpan = navItem.querySelector(".num");
+              if (numSpan) numSpan.textContent = "✓";
+            }
+            if (readBtn) {
+              readBtn.classList.add("done");
+              readBtn.textContent = "✓ Read";
+            }
+          }
+        }
+      }
+
+      function markRead(sectionIndex) {
+        readSections.add(sectionIndex);
+        localStorage.setItem("astys_read_v2", JSON.stringify([...readSections]));
+        updateProgress();
+
+        if (sectionIndex < TOTAL_SECTIONS) {
+          const nextSection = document.getElementById("s" + (sectionIndex + 1));
+          if (nextSection) {
+            nextSection.scrollIntoView({ behavior: "smooth" });
+          }
+        } else {
+          const ackSection = document.getElementById("ack");
+          if (ackSection) {
+            ackSection.scrollIntoView({ behavior: "smooth" });
+          }
+        }
+      }
+
+      updateProgress();
+
+      // Signature Canvas & Input Setup
+      const canvas = document.getElementById("canvas");
+      const canvasCtx = canvas.getContext("2d");
+
+      const drawBtn = document.getElementById("draw");
+      const typeBtn = document.getElementById("type");
+      const clearBtn = document.getElementById("clear");
+
+      const typeBox = document.getElementById("typeBox");
+      const typedInput = document.getElementById("typed");
+      const submitBtn = document.getElementById("submit");
+
+      const nameInput = document.getElementById("name");
+      const eidInput = document.getElementById("eid");
+      const desigInput = document.getElementById("desig");
+      const deptInput = document.getElementById("dept");
+      const placeInput = document.getElementById("place");
+
+      const tbody = document.getElementById("tbody");
+      const successMessage = document.getElementById("success");
+
+      let isDrawing = false;
+      let hasSigned = false;
+      let signatureMode = "draw";
+
+      function resizeCanvas() {
+        const rect = canvas.getBoundingClientRect();
+        canvas.width = rect.width * (window.devicePixelRatio || 1);
+        canvas.height = rect.height * (window.devicePixelRatio || 1);
+        canvasCtx.scale(window.devicePixelRatio || 1, window.devicePixelRatio || 1);
+        canvasCtx.lineWidth = 2;
+        canvasCtx.lineCap = "round";
+        canvasCtx.strokeStyle = "#07182d";
+      }
+      resizeCanvas();
+      window.addEventListener("resize", resizeCanvas);
+
+      function getCanvasCoordinates(event) {
+        const rect = canvas.getBoundingClientRect();
+        const pointer = event.touches ? event.touches[0] : event;
+        return [pointer.clientX - rect.left, pointer.clientY - rect.top];
+      }
+
+      function startDrawing(event) {
+        isDrawing = true;
+        hasSigned = true;
+        canvasCtx.beginPath();
+        canvasCtx.moveTo(...getCanvasCoordinates(event));
+        if (event.cancelable) event.preventDefault();
+      }
+
+      function drawLine(event) {
+        if (!isDrawing) return;
+        canvasCtx.lineTo(...getCanvasCoordinates(event));
+        canvasCtx.stroke();
+        if (event.cancelable) event.preventDefault();
+      }
+
+      function stopDrawing() {
+        isDrawing = false;
+      }
+
+      ["mousedown", "touchstart"].forEach((ev) => canvas.addEventListener(ev, startDrawing));
+      ["mousemove", "touchmove"].forEach((ev) => canvas.addEventListener(ev, drawLine));
+      ["mouseup", "mouseleave", "touchend"].forEach((ev) => canvas.addEventListener(ev, stopDrawing));
+
+      drawBtn.onclick = () => {
+        signatureMode = "draw";
+        drawBtn.classList.add("active");
+        typeBtn.classList.remove("active");
+        canvas.style.display = "block";
+        typeBox.style.display = "none";
+      };
+
+      typeBtn.onclick = () => {
+        signatureMode = "type";
+        typeBtn.classList.add("active");
+        drawBtn.classList.remove("active");
+        canvas.style.display = "none";
+        typeBox.style.display = "block";
+      };
+
+      clearBtn.onclick = () => {
+        canvasCtx.clearRect(0, 0, canvas.width, canvas.height);
+        hasSigned = false;
+        typedInput.value = "";
+      };
+
+      // HR Record Fetching & Dashboard KPI Stats Updating
+      async function fetchRecords() {
+        let records = [];
+
+        if (supabaseClient) {
+          try {
+            const { data, error } = await supabaseClient
+              .from("policy_acknowledgements")
+              .select("*")
+              .order("created_at", { ascending: false });
+
+            if (!error && data) {
+              records = data.map((item) => ({
+                id_pk: item.id,
+                name: item.employee_name,
+                id: item.employee_id,
+                desig: item.designation,
+                dept: item.department,
+                place: item.place,
+                time: new Date(item.created_at).toLocaleString(),
+                record: item.record_id,
+                sigType: item.signature_type,
+                sigData: item.signature_data,
+                source: "supabase",
+              }));
+            } else {
+              console.warn("Supabase fetch fallback:", error);
+              records = getLocalRecords();
+            }
+          } catch (e) {
+            console.error("Supabase query error:", e);
+            records = getLocalRecords();
+          }
+        } else {
+          records = getLocalRecords();
+        }
+
+        allLoadedRecords = records;
+        updateHrDashboardStats(records);
+        renderRecords(records);
+      }
+
+      function getLocalRecords() {
+        const raw = JSON.parse(localStorage.getItem("astys_records_v2") || "[]");
+        return raw.map((r) => ({ ...r, source: "local" }));
+      }
+
+      function updateHrDashboardStats(records) {
+        document.getElementById("kpiTotal").textContent = records.length;
+        const depts = new Set(records.map((r) => r.dept).filter(Boolean));
+        document.getElementById("kpiDepts").textContent = depts.size;
+        document.getElementById("kpiLatest").textContent = records.length ? records[0].time.split(",")[0] : "-";
+        document.getElementById("kpiSync").textContent = supabaseClient ? "Cloud Ready" : "Local Only";
+      }
+
+      function renderRecords(records) {
+        if (!isHrLoggedIn) return;
+
+        if (records.length) {
+          tbody.innerHTML = records
+            .map(
+              (r, idx) => `<tr>
+                <td><strong>${escapeHtml(r.name)}</strong></td>
+                <td>${escapeHtml(r.id)}</td>
+                <td>${escapeHtml(r.dept || "-")}</td>
+                <td>${escapeHtml(r.time)}</td>
+                <td><code>${escapeHtml(r.record)}</code></td>
+                <td>
+                  <span class="badge-source ${r.source === "supabase" ? "badge-supabase" : "badge-local"}">
+                    ${r.source}
+                  </span>
+                </td>
+                <td style="display:flex; gap:6px;">
+                  <button class="secondary btn-sm" onclick="viewCertificate(${idx})">View Cert</button>
+                  <button class="btn-danger btn-sm" onclick="deleteRecord('${r.record}')" title="Delete log">&times;</button>
+                </td>
+              </tr>`
+            )
+            .join("");
+        } else {
+          tbody.innerHTML = '<tr><td colspan="7">No acknowledgement logs found.</td></tr>';
+        }
+      }
+
+      async function deleteRecord(recordId) {
+        if (!confirm(`Are you sure you want to delete log ${recordId}?`)) return;
+
+        let localRecords = getLocalRecords();
+        localRecords = localRecords.filter((r) => r.record !== recordId);
+        localStorage.setItem("astys_records_v2", JSON.stringify(localRecords));
+
+        if (supabaseClient) {
+          try {
+            const { error } = await supabaseClient.from("policy_acknowledgements").delete().eq("record_id", recordId);
+            if (error) {
+              showToast("Error deleting from Supabase: " + error.message, "warning");
+            } else {
+              showToast("Log deleted from Supabase", "success");
+            }
+          } catch (e) {
+            console.error("Supabase delete error:", e);
+          }
+        } else {
+          showToast("Log deleted locally", "info");
+        }
+
+        fetchRecords();
+      }
+
+      function filterRecords() {
+        const search = document.getElementById("searchRecord").value.toLowerCase();
+        const dept = document.getElementById("filterDept").value;
+
+        const filtered = allLoadedRecords.filter((r) => {
+          const matchSearch =
+            !search ||
+            r.name.toLowerCase().includes(search) ||
+            r.id.toLowerCase().includes(search) ||
+            r.record.toLowerCase().includes(search);
+          const matchDept = !dept || r.dept === dept;
+          return matchSearch && matchDept;
+        });
+
+        renderRecords(filtered);
+      }
+
+      function exportRecordsCSV() {
+        if (!allLoadedRecords.length) {
+          return showToast("No log records available to export", "warning");
+        }
+        const headers = ["Employee Name", "Employee ID", "Designation", "Department", "Place", "Signed On", "Record ID", "Source"];
+        const rows = allLoadedRecords.map((r) => [
+          `"${r.name}"`,
+          `"${r.id}"`,
+          `"${r.desig || ""}"`,
+          `"${r.dept || ""}"`,
+          `"${r.place || ""}"`,
+          `"${r.time}"`,
+          `"${r.record}"`,
+          `"${r.source}"`,
+        ]);
+
+        const csvContent = "data:text/csv;charset=utf-8," + [headers.join(","), ...rows.map((e) => e.join(","))].join("\n");
+        const encodedUri = encodeURI(csvContent);
+        const link = document.createElement("a");
+        link.setAttribute("href", encodedUri);
+        link.setAttribute("download", `Astys_Policy_Acknowledgement_Logs_${new Date().toISOString().slice(0, 10)}.csv`);
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        showToast("Exported logs CSV!", "success");
+      }
+
+      function viewCertificate(idx) {
+        const record = allLoadedRecords[idx];
+        if (!record) return;
+
+        const certBody = document.getElementById("certBody");
+        certBody.innerHTML = `
+          <div style="border: 2px solid var(--navy); padding: 20px; border-radius: 10px; background: #fff;">
+            <div style="text-align: center; border-bottom: 1px solid var(--line); padding-bottom: 12px; margin-bottom: 14px;">
+              <h2 style="margin: 0; color: var(--navy); font-size: 20px;">Astys Audio Video Pvt. Ltd.</h2>
+              <p style="margin: 4px 0 0; color: var(--muted); font-size: 11px;">Official Policy Acknowledgement Certificate</p>
+            </div>
+            <p>This certifies that <strong>${escapeHtml(record.name)}</strong> (ID: <strong>${escapeHtml(record.id)}</strong>), holding designation <strong>${escapeHtml(record.desig || "N/A")}</strong> in the <strong>${escapeHtml(record.dept || "N/A")}</strong> department at <strong>${escapeHtml(record.place || "N/A")}</strong>, has formally reviewed and accepted all 21 sections of the Company Policy Manual (Version 1.0).</p>
+            <div style="background: #f7f9fb; padding: 12px; border-radius: 6px; margin: 14px 0;">
+              <div><strong>Record ID:</strong> <code>${escapeHtml(record.record)}</code></div>
+              <div><strong>Signed On:</strong> ${escapeHtml(record.time)}</div>
+              <div><strong>Status:</strong> Cloud Verified (${record.source})</div>
+            </div>
+            <div style="margin-top: 16px;">
+              <strong>Signature:</strong><br/>
+              ${
+                record.sigType === "draw" && record.sigData && record.sigData.startsWith("data:image")
+                  ? `<img src="${record.sigData}" alt="Signature" style="max-height: 80px; border: 1px solid #ddd; padding: 4px; border-radius: 6px; margin-top: 6px;"/>`
+                  : `<div style="font-family: cursive; font-size: 24px; padding: 8px; color: var(--navy);">${escapeHtml(record.sigData || record.name)}</div>`
+              }
+            </div>
+          </div>
+        `;
+        document.getElementById("certModal").style.display = "flex";
+      }
+
+      function closeCertModal() {
+        document.getElementById("certModal").style.display = "none";
+      }
+
+      function printCert() {
+        const content = document.getElementById("certBody").innerHTML;
+        const printWin = window.open("", "_blank");
+        printWin.document.write(`<html><head><title>Certificate</title><style>body{font-family:sans-serif;padding:30px;}</style></head><body>${content}</body></html>`);
+        printWin.document.close();
+        printWin.print();
+      }
+
+      function escapeHtml(str) {
+        if (!str) return "";
+        return String(str).replace(/[&<>"']/g, function (m) {
+          return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;" }[m];
+        });
+      }
+
+      // Employee Form Submission
+      submitBtn.onclick = async () => {
+        document.querySelectorAll(".input-error").forEach((el) => el.classList.remove("input-error"));
+        document.querySelectorAll(".check-error").forEach((el) => el.classList.remove("check-error"));
+
+        if (readSections.size < TOTAL_SECTIONS) {
+          showToast(`Please mark all 21 sections as read (${readSections.size}/21 completed).`, "error");
+          return alert("Please mark all 21 policy sections as read.");
+        }
+
+        let hasError = false;
+        const requiredInputs = [
+          { el: nameInput, label: "Employee Name" },
+          { el: eidInput, label: "Employee ID" },
+          { el: desigInput, label: "Designation" },
+          { el: deptInput, label: "Department" },
+          { el: placeInput, label: "Place" },
+        ];
+
+        for (const inputObj of requiredInputs) {
+          if (!inputObj.el.value.trim()) {
+            inputObj.el.classList.add("input-error");
+            hasError = true;
+          }
+        }
+
+        if (hasError) {
+          showToast("Please fill in all required employee details.", "error");
+          return;
+        }
+
+        const consentBoxes = [...document.querySelectorAll(".cons")];
+        if (!consentBoxes.every((box) => box.checked)) {
+          consentBoxes.filter((box) => !box.checked).forEach((box) => box.parentElement.classList.add("check-error"));
+          showToast("Please accept all acknowledgement declaration boxes.", "error");
+          return;
+        }
+
+        let sigData = "";
+        if (signatureMode === "draw") {
+          if (!hasSigned) {
+            showToast("Please draw your signature in the box provided.", "error");
+            return;
+          }
+          sigData = canvas.toDataURL("image/png");
+        } else {
+          if (!typedInput.value.trim()) {
+            typedInput.classList.add("input-error");
+            showToast("Please type your full name as signature.", "error");
+            return;
+          }
+          sigData = typedInput.value.trim();
+        }
+
+        const now = new Date();
+        const cleanId = eidInput.value.trim().replace(/\s/g, "").toUpperCase();
+        const recordId = "ACK-" + now.getFullYear() + "-" + cleanId + "-" + String(now.getTime()).slice(-6);
+
+        const newRecord = {
+          name: nameInput.value.trim(),
+          id: eidInput.value.trim(),
+          desig: desigInput.value.trim(),
+          dept: deptInput.value,
+          place: placeInput.value.trim(),
+          time: now.toLocaleString(),
+          record: recordId,
+          sigType: signatureMode,
+          sigData: sigData,
+          source: supabaseClient ? "supabase" : "local",
+        };
+
+        // Save locally first
+        const localRecords = getLocalRecords();
+        localRecords.unshift(newRecord);
+        localStorage.setItem("astys_records_v2", JSON.stringify(localRecords));
+
+        // Save to Supabase
+        if (supabaseClient) {
+          try {
+            submitBtn.disabled = true;
+            submitBtn.textContent = "Saving to Supabase...";
+
+            const { data, error } = await supabaseClient.from("policy_acknowledgements").insert([
+              {
+                record_id: recordId,
+                employee_name: newRecord.name,
+                employee_id: newRecord.id,
+                designation: newRecord.desig,
+                department: newRecord.dept,
+                place: newRecord.place,
+                policy_version: "1.0",
+                signature_type: signatureMode,
+                signature_data: sigData,
+                read_sections_count: TOTAL_SECTIONS,
+                user_agent: navigator.userAgent,
+              },
+            ]);
+
+            if (error) {
+              showToast("Saved locally. Supabase error: " + error.message, "warning");
+            } else {
+              showToast("Policy acknowledgement saved to Supabase!", "success");
+            }
+          } catch (e) {
+            console.error("Supabase save exception:", e);
+            showToast("Saved locally. Supabase connection issue.", "warning");
+          } finally {
+            submitBtn.disabled = false;
+            submitBtn.textContent = "Acknowledge & Sign Policy";
+          }
+        } else {
+          showToast("Acknowledgement saved locally (Connect Supabase to sync).", "info");
+        }
+
+        fetchRecords();
+
+        successMessage.style.display = "block";
+        successMessage.innerHTML = `<strong>Acknowledgement successfully recorded!</strong><br>
+          Employee: <strong>${escapeHtml(newRecord.name)}</strong> (${escapeHtml(newRecord.id)})<br>
+          Department: ${escapeHtml(newRecord.dept)} · Designation: ${escapeHtml(newRecord.desig)}<br>
+          Policy: Version 1.0 · Effective 1 December 2026<br>
+          Signed: ${newRecord.time}<br>
+          Record ID: <code>${recordId}</code>`;
+
+        successMessage.scrollIntoView({ behavior: "smooth" });
+      };
+
+      // Initial startup
+      initSupabase();
+      checkHrAuthStatus();
+      initCheckboxListeners();
+      fetchRecords();
+    </script>
+  </body>
+</html>
